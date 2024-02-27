@@ -1,0 +1,51 @@
+.sidebar {
+  width: 20%;
+  height: 83vh;
+  border-right: 1px solid #99aaae;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 20px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.sidebar-item div {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-item img {
+  width: 20px;
+  height: 20px;
+  color: #99aaae;
+}
+
+.sidebar p {
+  margin-left: 8px;
+  color: #646361;
+}
+
+.sidebar p i {
+  font-size: 30px;
+  color: #99aaae;
+}
+
+.sidebar-item-subdivis-financeiro {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-item-subdivis-financeiro div {
+  padding: 12px;
+}
+
+.sidebar-item-subdivis-financeiro div:hover {
+  background: #646361;
+  cursor: pointer;
+}

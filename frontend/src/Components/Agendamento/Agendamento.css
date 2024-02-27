@@ -1,0 +1,129 @@
+.agendamento {
+  width: 100%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.agendamento-conteudo {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.agendamento-conteudo h1 {
+  margin-bottom: 20px;
+  color: #007ab5;
+}
+
+.agendamento-conteudo button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background: #01b58c;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.agendamento-campos {
+  display: flex;
+  margin-right: 30px;
+  width: 100%;
+  gap: 20px;
+}
+
+.agendamento-campos div {
+  width: 50%;
+}
+
+.agendamento-campos p {
+  font-size: 16px;
+  color: #233a51;
+}
+
+.agendamento-campos input {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  width: 100%;
+  color: #233a51;
+}
+
+.agendamento-adicionar-horarios {
+  margin-top: 20px;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+}
+
+.agendamento-horarios-disponiveis {
+  margin-top: 20px;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.agendamento-horarios-disponiveis h2 {
+  color: #007ab5;
+}
+
+.agendamento-horarios-disponiveis p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.agendamento-horarios-disponiveis p i {
+  cursor: pointer;
+}
+
+.agendamento-adicionar-horarios h3 {
+  color: #007ab5;
+  margin-bottom: 10px;
+}
+
+.agendamento-adicionar-horarios span {
+  color: #233a51;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.agendamento-adicionar-horarios input {
+  padding: 8px 16px;
+  margin-right: 10px;
+}
+
+.agendamento-adicionar-horarios button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background: #01b58c;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+thead tr {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+tbody tr {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+tbody tr td:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
