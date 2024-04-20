@@ -13,8 +13,8 @@ const Marcados = () => {
 
 
     useEffect(()=>{
-        console.log(clientesQuePagaram)
-    },[clientesQuePagaram])
+        console.log(valoresPagos)
+    },[valoresPagos])
 
 
     const valorPagoPeloCliente = (dataMarcada, valor, index, clienteIndex) => {
@@ -27,23 +27,29 @@ const Marcados = () => {
             setValoresPagos(novoValoresPagos);
 
             // Atualiza o estado dos clientes que pagaram
-            setClientesQuePagaram(prevState => {
+            setClientesQuePagaram(() => {
                 const ano = dataMarcada.slice(0, 4);
                 const mes = dataMarcada.slice(5, 7);
                 const dia = dataMarcada.slice(8, 10);
 
-                const newState = {
-                    ...prevState,
-                    [ano]: {
-                        ...prevState[ano],
-                        [mes]: {
-                            ...prevState[ano][mes],
-                            [dia]: [...(prevState[ano][mes][dia] || []), cliente]
+                if(clientesQuePagaram[ano]){
+                    if(clientesQuePagaram[ano][mes]){
+                        if(clientesQuePagaram[ano][mes][dia]){
+                            clientesQuePagaram[ano][mes][dia].push(cliente);
+                        }else{
+                            clientesQuePagaram[ano][mes][dia] = [cliente];
                         }
+                    }else{
+                        clientesQuePagaram[ano][mes] = {};
+                        clientesQuePagaram[ano][mes][dia] = [cliente];
                     }
-                };
+                }else{
+                    clientesQuePagaram[ano] = {};
+                    clientesQuePagaram[ano][mes] = {};
+                    clientesQuePagaram[ano][mes][dia] = [cliente];
+                }
 
-                return newState;
+                return clientesQuePagaram;
             });
 
             // Remove o cliente da lista de clientes marcados
@@ -103,7 +109,7 @@ const Marcados = () => {
                             <input
                                 type="text"
                                 name="valor"
-                                onChange={(e) => obterValorPago(e, clienteIndex, index2)}
+                                onChange={(e) => obterValorPago(e, clienteIndex)}
                                 value={valoresPagos[clienteIndex] ? valoresPagos[clienteIndex] : ''}
                                 placeholder="Valor..."
                             />

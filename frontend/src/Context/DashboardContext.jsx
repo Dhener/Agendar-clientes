@@ -58,6 +58,10 @@ const DashboardContextProvider = (props) => {
     });
     const [tipoDeFaturamento, setTipoDeFaturamento] = useState("diario");
     function adicionarDiasHorarios(dataHora) {
+
+      if(dataHora.length === 0){
+        alert("É necessário escolher algum horário");
+      }else{
         let data = dataHora.slice(0, 10);
         let hora = dataHora.slice(11, 16);
     
@@ -73,6 +77,7 @@ const DashboardContextProvider = (props) => {
           }
           return newState;
         });
+      }
       }
     const contextValue = {estado, setEstado, clientesMarcados, setClientesMarcados, diasHorariosDisponiveis, setDiasHorariosDisponiveis, tipoDeFaturamento, setTipoDeFaturamento, clientesQuePagaram, setClientesQuePagaram, adicionarDiasHorarios};
 

@@ -25,23 +25,28 @@ const Agendamento = () => {
     }
 
     useEffect(()=>{
-      console.log(clientesMarcados);
-    },[clientesMarcados])
+      console.log(diasHorariosDisponiveis);
+    },[diasHorariosDisponiveis])
 
     const verificarSeOClienteEstaMarcado = (dataMarcada, horaMarcada) => {
-      clientesMarcados[dataMarcada].forEach(cliente => {
-        if(cliente.hora_marcada === horaMarcada){
-          return false;
-        }
+      if(Object.keys(clientesMarcados).length === 0){
         return true;
-      });
+      } else{
+        clientesMarcados[dataMarcada].forEach(cliente => {
+          if(cliente.hora_marcada === horaMarcada){
+            return false;
+          }
+        });
+        return true;
+      }
     }
 
     function adicionarClienteParaMarcacao() {
+      
         let dataMarcada = cliente.dataHora.slice(0, 10);
         let horaMarcada = cliente.dataHora.slice(11, 16);
-    
-        if ((diasHorariosDisponiveis[dataMarcada] && diasHorariosDisponiveis[dataMarcada].indexOf(horaMarcada) !== -1) || verificarSeOClienteEstaMarcado(dataMarcada, horaMarcada)) {
+        console.log(diasHorariosDisponiveis.length)
+        if ((Object.keys(diasHorariosDisponiveis).length > 0 && diasHorariosDisponiveis[dataMarcada].indexOf(horaMarcada) !== -1) && verificarSeOClienteEstaMarcado(dataMarcada, horaMarcada)) {
           //console.log("Hora está disponível para marcação!");
           setClientesMarcados(prevState => {
             const newState = { ...prevState };
